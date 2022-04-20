@@ -32,7 +32,7 @@ public class ExamplePaginatedGui extends PageableGui<ExamplePlugin, Material> {
 
     @Override
     public GuiButton nextPageButton() {
-        return new GuiButton(new ItemStack(Material.ARROW) ,event -> {
+        return new GuiButton(new ItemStack(Material.ARROW), event -> {
             if (!getPagination().hasNext(getPage())) return;
 
             updatePage(getPagination().getNext(getPage()));
@@ -41,10 +41,10 @@ public class ExamplePaginatedGui extends PageableGui<ExamplePlugin, Material> {
 
     @Override
     public GuiButton previousPageButton() {
-        return new GuiButton(new ItemStack(Material.ARROW) ,event -> {
-            if (!getPagination().hasNext(getPage())) return;
+        return new GuiButton(new ItemStack(Material.ARROW), event -> {
+            if (!getPagination().hasPrevious(getPage())) return;
 
-            updatePage(getPagination().getNext(getPage()));
+            updatePage(getPagination().getPrevious(getPage()));
         });
     }
 }
