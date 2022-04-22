@@ -1,7 +1,6 @@
 * ExampleGui class preview
 
-![be6def364f5c131901908644959e9dd3](https://user-images.githubusercontent.com/51340164/164756029-e4d0f832-d57a-4383-8163-414dbf6265ec.png)
-
+![71449ae4a8b9fcee6f8235bc1739d313](https://user-images.githubusercontent.com/51340164/164756801-e75bcb56-318f-4171-b6e9-effe9a2793af.png)
 
 
 
