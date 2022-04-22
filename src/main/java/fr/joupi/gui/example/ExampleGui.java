@@ -17,6 +17,6 @@ public class ExampleGui extends Gui<ExamplePlugin> {
         setItems(getBorders(), new GuiButton(new ItemStack(Material.STAINED_GLASS_PANE)));
 
         setItem(53, new GuiButton(new ItemStack(Material.BARRIER),
-                event -> close((Player) event)));
+                event -> close((Player) event.getWhoClicked())));
     }
 }
