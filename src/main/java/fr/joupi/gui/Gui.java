@@ -2,6 +2,7 @@ package fr.joupi.gui;
 
 import com.google.common.collect.Maps;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -12,6 +13,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.IntStream;
 
@@ -27,7 +30,7 @@ public abstract class Gui<P extends JavaPlugin> {
     private final ConcurrentMap<Integer, GuiButton> buttons;
     private transient GuiButtonListener oldListener;
 
-    protected Gui(P plugin, String inventoryName, int rows) {
+    public Gui(P plugin, String inventoryName, int rows) {
         this.plugin = plugin;
         this.inventoryName = inventoryName;
         this.rows = rows;
@@ -76,9 +79,17 @@ public abstract class Gui<P extends JavaPlugin> {
                 .forEach(slot -> setItem(slot, button));
     }
 
-    public void setVerticalLine(int from, int to, ItemStack item) {
+    public void setHorizontalLine(int from, int to, ItemStack itemStack) {
+        setHorizontalLine(from, to, new GuiButton(itemStack));
+    }
+
+    public void setVerticalLine(int from, int to, GuiButton button) {
         for (int slot = from; slot <= to; slot += 9)
-            setItem(slot, new GuiButton(item));
+            setItem(slot, button);
+    }
+
+    public void setVerticalLine(int from, int to, ItemStack item) {
+        setVerticalLine(from, to, new GuiButton(item));
     }
 
     public void addItem(GuiButton item) {
